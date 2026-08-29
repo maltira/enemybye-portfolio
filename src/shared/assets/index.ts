@@ -1,11 +1,14 @@
+import albumNotFoundIcon from './icons/album-not-found.svg'
 import arrowLeftIcon from './icons/arrow-left.svg'
 import arrowRightIcon from './icons/arrow-right.svg'
 import figmaIcon from './icons/figma.svg'
 import githubBlackIcon from './icons/github-fill-black.svg'
+import githubGrayIcon from './icons/github-fill-gray.svg'
 import githubWhiteIcon from './icons/github-fill-white.svg'
 import layerSparkleIcon from './icons/layer-diagonal-sparkle.svg'
 import stackPlusIcon from './icons/stack-plus.svg'
 import telegramIcon from './icons/telegram.svg'
+import closeIcon from './icons/close.svg'
 
 // Skill icons
 import dockerIcon from './icons/docker-icon.svg'
@@ -22,15 +25,18 @@ import vueIcon from './icons/vue-icon.svg'
 import avatarImg from './images/image.png'
 
 export {
+  albumNotFoundIcon,
   arrowLeftIcon,
   arrowRightIcon,
   figmaIcon,
   githubBlackIcon,
+  githubGrayIcon,
   githubWhiteIcon,
   layerSparkleIcon,
   stackPlusIcon,
   telegramIcon,
   avatarImg,
+  closeIcon,
 
   // Skill icons
   dockerIcon,

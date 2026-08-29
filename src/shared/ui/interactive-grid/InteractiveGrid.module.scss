@@ -1,0 +1,36 @@
+.gridOverlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: var(--mouse-opacity, 0);
+  transition: opacity 0.3s ease-out;
+
+  background-image:
+    linear-gradient(to right, rgba($text-dark-gray, 0.08) 2px, transparent 2px),
+    linear-gradient(to bottom, rgba($text-dark-gray, 0.08) 2px, transparent 2px);
+  background-size: 100px 100px;
+
+  mask-image: radial-gradient(circle 620px at var(--mouse-x, -1000px) var(--mouse-y, -1000px),
+      black 0%,
+      rgba(0, 0, 0, 0.5) 45%,
+      transparent 100%);
+  -webkit-mask-image: radial-gradient(circle 620px at var(--mouse-x, -1000px) var(--mouse-y, -1000px),
+      black 0%,
+      rgba(0, 0, 0, 0.5) 45%,
+      transparent 100%);
+
+  @media (max-width: 480px) {
+    opacity: 0.75;
+    background-size: 80px 80px;
+
+    mask-image: radial-gradient(circle 380px at 50% 140px,
+        black 0%,
+        rgba(0, 0, 0, 0.5) 45%,
+        transparent 100%);
+    -webkit-mask-image: radial-gradient(circle 380px at 50% 140px,
+        black 0%,
+        rgba(0, 0, 0, 0.5) 45%,
+        transparent 100%);
+  }
+}

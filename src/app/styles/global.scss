@@ -5,6 +5,11 @@
   margin: 0;
   padding: 0;
   transition: $transition-fast;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scrollbar-gutter: stable;
 }
 
 html,
@@ -21,10 +26,16 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  isolation: isolate;
 }
 
 .pageContainer {
   padding: 50px;
+
+  @media (max-width: 768px) {
+    padding: 40px 20px;
+  }
 }
 
 /* Custom minimal scrollbar */

@@ -1,0 +1,9 @@
+.tag {
+  @include font-tag-regular;
+
+  background-color: $background;
+  color: $text-muted-gray;
+
+  padding: 2px 8px;
+  border-radius: $radius-sm;
+}
