@@ -11,8 +11,16 @@
   z-index: 50;
   pointer-events: none;
 
+  @include animate-fadeInDown(0s, 0.65s);
+
   >* {
     pointer-events: auto;
+  }
+
+  @media (max-width: 768px) {
+    top: 24px;
+    left: 20px;
+    right: 20px;
   }
 }
 
@@ -21,8 +29,6 @@
   align-items: center;
   gap: 8px;
   padding: 4px;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   border-radius: $radius-full;
 
   div {
@@ -30,10 +36,30 @@
     height: 32px;
     border-radius: $radius-full;
   }
+
+  @media (max-width: 768px) {
+    div {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    div {
+      width: 16px;
+      height: 16px;
+    }
+  }
 }
 
 .linkButtons {
   display: flex;
   align-items: center;
   gap: 8px;
+
+  @media (max-width: 480px) {
+    & span {
+      display: none;
+    }
+  }
 }

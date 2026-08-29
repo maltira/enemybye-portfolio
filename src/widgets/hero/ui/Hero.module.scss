@@ -5,16 +5,31 @@
   gap: 16px;
 
   user-select: none;
+  @include animate-fadeInUp(0.08s, 0.75s);
 
   .avatar {
     width: 160px;
     height: 160px;
     border-radius: $radius-full;
     object-fit: cover;
+
+    @media (max-width: 768px) {
+      width: 120px;
+      height: 120px;
+    }
+
+    @media (max-width: 480px) {
+      width: 100px;
+      height: 100px;
+    }
   }
 
   .author {
     @include font-main-regular;
     color: $text-dark-gray;
   }
+}
+
+.titleWrapper {
+  @include animate-fadeInUp(0.22s, 0.75s);
 }

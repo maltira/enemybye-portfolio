@@ -12,14 +12,16 @@ export const Hero = () => {
       </div>
 
       {/* Title */}
-      <TitleContainer>
-        <TextWithIcon>
-          <h1>Full-stack</h1>
-          <img src={stackPlusIcon} alt="icon" />
-          <h1>developer</h1>
-        </TextWithIcon>
-        <h1>& UX/UI Designer</h1>
-      </TitleContainer>
+      <div className={styles.titleWrapper}>
+        <TitleContainer>
+          <TextWithIcon>
+            <h1>Full-stack</h1>
+            <img src={stackPlusIcon} alt="icon" />
+            <h1>developer</h1>
+          </TextWithIcon>
+          <h1>& UX/UI Designer</h1>
+        </TitleContainer>
+      </div>
     </Container>
   )
 }
