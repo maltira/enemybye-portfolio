@@ -1,0 +1,6 @@
+.section {
+  width: 100%;
+  max-width: 1056px;
+
+  @include animate-fadeInUp(0.64s, 0.75s);
+}

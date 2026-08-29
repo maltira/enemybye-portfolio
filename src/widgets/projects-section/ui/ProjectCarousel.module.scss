@@ -1,0 +1,64 @@
+.carouselRoot {
+  width: 100%;
+  max-width: 1056px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 0 4px;
+}
+
+.arrowButton {
+  width: 36px;
+  height: 36px;
+
+  border-radius: $radius-full;
+  background-color: $background;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: $transition-fast;
+
+  img {
+    width: 18px;
+    height: 18px;
+    user-select: none;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: rgba($text-dark-gray, 0.1);
+    }
+  }
+
+  &:active {
+    transform: scale(0.95);
+    background-color: rgba($text-dark-gray, 0.15);
+  }
+
+  &.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+}
+
+.scrollTrack {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 8px 4px 16px 4px;
+  -webkit-overflow-scrolling: touch;
+
+  @media (max-width: 768px) {
+    padding: 4px 0 12px 0;
+  }
+}
