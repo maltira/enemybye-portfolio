@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  right: 50px;
+  z-index: 50;
+  pointer-events: none;
+
+  >* {
+    pointer-events: auto;
+  }
+}
+
+.appleControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: $radius-full;
+
+  div {
+    width: 32px;
+    height: 32px;
+    border-radius: $radius-full;
+  }
+}
+
+.linkButtons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

@@ -1,0 +1,26 @@
+.linkButton {
+  @include font-button-medium;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 16px;
+  background-color: rgba($background, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid $border-light-gray;
+  border-radius: $radius-md;
+  color: $text-dark-gray;
+
+  user-select: none;
+
+  .icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover {
+    border: 1px solid transparent;
+  }
+}

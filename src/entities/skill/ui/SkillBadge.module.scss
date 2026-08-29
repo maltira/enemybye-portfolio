@@ -1,0 +1,62 @@
+.skillBadge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    .icon {
+      transform: translateY(-4px) scale(1.1);
+
+    }
+
+    .tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(-20%);
+    }
+  }
+}
+
+
+.icon {
+  width: 58px;
+  height: 58px;
+  pointer-events: none;
+  transition: $transition-fast;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 20;
+
+  @include font-xs-medium;
+  color: $primary-white;
+  background-color: $primary-black;
+  padding: 4px 8px;
+  border-radius: $radius-sm;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  transition: opacity $transition-fast, transform $transition-fast, visibility $transition-fast;
+
+  /* Tooltip arrow */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 4px 4px 0 4px;
+    border-style: solid;
+    border-color: $primary-black transparent transparent transparent;
+  }
+}

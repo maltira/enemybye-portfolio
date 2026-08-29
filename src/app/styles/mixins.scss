@@ -1,0 +1,79 @@
+@use './variables.scss' as *;
+
+// Typography Mixins
+
+// H1
+@mixin font-h1-regular {
+  font-family: $font-family;
+  font-size: 56px;
+  font-weight: 400;
+  letter-spacing: -1.25px;
+}
+
+
+// H2
+@mixin font-h2-regular {
+  font-family: $font-family;
+  font-size: 28px;
+  font-weight: 400;
+}
+
+// H4
+@mixin font-h4-medium {
+  font-family: $font-family;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+// H5
+@mixin font-h5-medium {
+  font-family: $font-family;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+// Main
+@mixin font-main-regular {
+  font-family: $font-family;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+@mixin font-main-medium {
+  font-family: $font-family;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+// Button
+@mixin font-button-medium {
+  font-family: $font-family;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+// Tag
+@mixin font-tag-regular {
+  font-family: $font-family;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+@mixin font-tag-medium {
+  font-family: $font-family;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+// XS
+@mixin font-xs-regular {
+  font-family: $font-family;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+@mixin font-xs-medium {
+  font-family: $font-family;
+  font-size: 12px;
+  font-weight: 500;
+}
