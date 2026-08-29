@@ -1,6 +1,7 @@
 export * from './header'
 export * from './hero'
 export * from './skills-section'
+export * from './bio'
 export * from './projects-section'
 export * from './github-activity'
 export * from './footer'
