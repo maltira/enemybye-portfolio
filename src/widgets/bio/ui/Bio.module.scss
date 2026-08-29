@@ -1,0 +1,25 @@
+.bioText {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  max-width: 520px;
+  width: 100%;
+
+  @include animate-fadeInUp(0.5s, 0.75s);
+
+  p {
+    @include font-main-regular;
+    color: $text-dark-gray;
+    line-height: 150%;
+
+    span.bold {
+      @include font-main-medium;
+    }
+  }
+
+  @media (max-width: 480px) {
+    gap: 12px;
+    max-width: 332px;
+  }
+}
