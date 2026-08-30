@@ -1,11 +1,15 @@
-import type { ReactNode } from 'react'
+import type { HTMLAttributes, ReactNode } from 'react'
 import styles from './Tag.module.scss'
 
-export interface TagProps {
+export interface TagProps extends HTMLAttributes<HTMLSpanElement> {
   children: ReactNode
   className?: string
 }
 
-export const Tag = ({ children, className = '' }: TagProps) => {
-  return <span className={`${styles.tag} ${className}`}>{children}</span>
+export const Tag = ({ children, className = '', ...props }: TagProps) => {
+  return (
+    <span className={`${styles.tag} ${className}`} {...props}>
+      {children}
+    </span>
+  )
 }

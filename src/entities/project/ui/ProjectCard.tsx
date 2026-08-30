@@ -1,6 +1,6 @@
 import type { Project } from '../model/types'
-import { Tag } from '@/shared/ui'
 import { ProjectThumbnail } from './ProjectThumbnail'
+import { ProjectTags } from './ProjectTags'
 import styles from './ProjectCard.module.scss'
 
 export interface ProjectCardProps {
@@ -28,11 +28,7 @@ export const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
           <p className={styles.description}>{project.description}</p>
         </div>
 
-        <div className={styles.tags}>
-          {project.tags.map((tag) => (
-            <Tag key={tag}>{tag}</Tag>
-          ))}
-        </div>
+        <ProjectTags tags={project.tags} />
       </div>
     </div>
   )

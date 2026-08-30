@@ -80,8 +80,26 @@
   }
 }
 
+.tagsContainer {
+  position: relative;
+  width: 100%;
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
+}
+
+.measureTags {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+  pointer-events: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  z-index: -999;
 }
