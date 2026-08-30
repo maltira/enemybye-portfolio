@@ -1,6 +1,9 @@
 # Portfolio Project
-
 Минималистичное и производительное веб-портфолио, построенное на архитектуре **Feature-Sliced Design (FSD)**.
+
+<p align="center">
+  <img src="./src/shared/assets/images/portfolio-project-thumbnail.png" alt="Превью портфолио" width="800px" style="border-radius: 12px;" />
+</p>
 
 ---
 
