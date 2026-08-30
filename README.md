@@ -1,22 +1,24 @@
 # Portfolio Project
 
-Минималистичное и производительное веб-портфолио, построенное на архитектуре **Feature-Sliced Design (FSD)**
+Минималистичное и производительное веб-портфолио, построенное на архитектуре **Feature-Sliced Design (FSD)**.
 
 ---
 
 ## 🛠 Стек технологий
 
-- **Core:** React 19, TypeScript, Vite
-- **Styles:** SCSS
-- **Architecture:** Feature-Sliced Design (FSD)
+- **Frontend:** React 19, TypeScript, Vite
+- **Стилизация:** SCSS
+- **Архитектура:** Feature-Sliced Design (FSD)
+- **Инфраструктура:** Docker, Nginx Alpine, Docker Compose
 
 ---
 
 ## ✨ Ключевые особенности
 
-- **Feature-Sliced Design:** Четкое разделение на слои (`app`, `pages`, `widgets`, `features`, `entities`, `shared`)
-- **Плавные анимации:** Легковесный каскадный `fadeInUp / fadeInDown` на чистом CSS
-- **100% Адаптив:** Оптимизировано под экраны от 360px
+- **Feature-Sliced Design:** Масштабируемая структура с разделением на слои (`app`, `pages`, `widgets`, `features`, `entities`, `shared`)
+- **Плавные CSS-анимации:** Каскадный `fadeInUp / fadeInDown` на чистом CSS
+- **Production-Ready Docker:** Двухэтапная сборка (Node 22 -> Nginx Alpine)
+- **100% Адаптивность:** Полная оптимизация под экраны от 360px до 4K
 
 ---
 
@@ -26,27 +28,36 @@
 src/
 ├── app/          # Инициализация приложения, глобальные стили и переменные
 ├── pages/        # Страницы приложения (HomePage)
-├── widgets/      # Крупные композиционные блоки (Header, Hero, Bio, Projects, Github, Footer)
-├── features/     # Пользовательские сценарии (ProjectModal)
-├── entities/     # Бизнес-сущности (Project, Skill)
+├── widgets/      # Крупные композиционные блоки (Header, Hero, Bio, ProjectsSection, GithubActivity, Footer)
+├── features/     # Пользовательские фичи (ProjectModal)
+├── entities/     # Бизнес-сущности и карточки (Project, Skill)
 └── shared/       # Переиспользуемый UI (Modal, Tag, LinkButton), хуки, ассеты и конфиги
 ```
 
 ---
 
-## 🚀 Быстрый старт
+## 🚀 Команды управления (Makefile / npm)
 
-### Установка зависимостей
+### Локальная разработка
 ```bash
 npm install
+make dev        # или: npm run dev
 ```
 
-### Запуск dev-сервера
+### Сборка продакшен-бандла
 ```bash
-npm run dev
+make build      # или: npm run build
 ```
 
-### Сборка проекта
+### Предпросмотр сборки
 ```bash
-npm run build
+make preview    # или: npm run preview
+```
+
+### Docker
+```bash
+make up                 # Сборка и запуск контейнера в фоне (http://localhost:8080)
+make down               # Остановка и удаление контейнера
+make restart            # Пересборка и перезапуск
+make logs               # Просмотр логов (или: make logs c=portfolio)
 ```
