@@ -24,6 +24,12 @@ import vueIcon from './icons/vue-icon.svg'
 
 import avatarImg from './images/image.png'
 
+// Thumbnails
+import kktProjectThumbnail from './images/kkt-project-thumbnail.png'
+import portfolioProjectThumbnail from "./images/portfolio-project-thumbnail.png"
+import notelyProjectThumbnail from "./images/notely-project-thumbnail.png"
+import liveProjectThumbnail from "./images/live-project-thumbnail.jpg"
+
 export {
   albumNotFoundIcon,
   arrowLeftIcon,
@@ -49,4 +55,10 @@ export {
   redisIcon,
   tsIcon,
   vueIcon,
+
+  // Thumbnails
+  kktProjectThumbnail,
+  portfolioProjectThumbnail,
+  notelyProjectThumbnail,
+  liveProjectThumbnail
 }
