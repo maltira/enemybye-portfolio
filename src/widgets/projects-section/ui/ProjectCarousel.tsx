@@ -63,17 +63,17 @@ export const ProjectCarousel = ({ projects, onSelectProject }: ProjectCarouselPr
           className={`${styles.arrowButton} ${!canScrollLeft ? styles.disabled : ''}`}
           onClick={() => handleScroll('left')}
           disabled={!canScrollLeft}
-          aria-label="Previous project"
+          aria-label="Предыдущий проект"
         >
-          <img src={arrowLeftIcon} alt="Previous" />
+          <img src={arrowLeftIcon} alt="" />
         </button>
         <button
           className={`${styles.arrowButton} ${!canScrollRight ? styles.disabled : ''}`}
           onClick={() => handleScroll('right')}
           disabled={!canScrollRight}
-          aria-label="Next project"
+          aria-label="Следующий проект"
         >
-          <img src={arrowRightIcon} alt="Next" />
+          <img src={arrowRightIcon} alt="" />
         </button>
       </div>
     </div>

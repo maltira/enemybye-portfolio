@@ -6,10 +6,14 @@ interface TitleContainerProps {
   className?: string
 }
 
-export const TitleContainer = ({ children, className = '' }: TitleContainerProps) => {
-  return <div className={`${styles.titleContainer} ${className}`}>{children}</div>
+interface TitleProps extends TitleContainerProps {
+  as: 'h1' | 'h2'
+}
+
+export const TitleContainer = ({ as: Heading, children, className = '' }: TitleProps) => {
+  return <Heading className={`${styles.titleContainer} ${className}`}>{children}</Heading>
 }
 
 export const TextWithIcon = ({ children, className = '' }: TitleContainerProps) => {
-  return <div className={`${styles.textWithIcon} ${className}`}>{children}</div>
+  return <span className={`${styles.textWithIcon} ${className}`}>{children}</span>
 }

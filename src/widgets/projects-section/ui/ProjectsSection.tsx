@@ -13,12 +13,12 @@ export const ProjectsSection = () => {
   return (
     <Container className={styles.section}>
       {/* Title */}
-      <TitleContainer>
-        <h1>Dev & Design</h1>
+      <TitleContainer as="h2">
+        <span>Dev & Design</span>{' '}
         <TextWithIcon>
-          <h1>Selected</h1>
-          <img src={layerSparkleIcon} alt="icon" />
-          <h1>Projects</h1>
+          <span>Selected</span>{' '}
+          <img src={layerSparkleIcon} alt="" />{' '}
+          <span>Projects</span>
         </TextWithIcon>
       </TitleContainer>
 

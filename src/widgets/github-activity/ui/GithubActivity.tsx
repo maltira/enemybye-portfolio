@@ -81,11 +81,11 @@ export const GithubActivity = () => {
   return (
     <Container className={styles.section}>
       {/* Title */}
-      <TitleContainer>
+      <TitleContainer as="h2">
         <TextWithIcon>
-          <h1>Github</h1>
-          <img src={githubBlackIcon} alt="icon" />
-          <h1>Activity</h1>
+          <span>Github</span>{' '}
+          <img src={githubBlackIcon} alt="" />{' '}
+          <span>Activity</span>
         </TextWithIcon>
       </TitleContainer>
 

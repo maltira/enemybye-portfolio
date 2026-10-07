@@ -1,3 +1,4 @@
+import type { KeyboardEvent } from 'react'
 import type { Project } from '../model/types'
 import { ProjectThumbnail } from './ProjectThumbnail'
 import { ProjectTags } from './ProjectTags'
@@ -9,8 +10,22 @@ export interface ProjectCardProps {
 }
 
 export const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
+  const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      onClick?.(project)
+    }
+  }
+
   return (
-    <div className={styles.card} onClick={() => onClick?.(project)}>
+    <div
+      className={styles.card}
+      role="button"
+      tabIndex={0}
+      aria-label={`${project.title} — подробнее о проекте`}
+      onClick={() => onClick?.(project)}
+      onKeyDown={handleKeyDown}
+    >
       {/* Thumbnail */}
       <div className={styles.thumbnailWrapper}>
         <ProjectThumbnail source={project.thumbnail} sizes="284px" alt={project.title} />

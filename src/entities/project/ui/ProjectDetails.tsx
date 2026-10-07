@@ -23,7 +23,7 @@ export const ProjectDetails = ({ project }: ProjectDetailsProps) => {
       {/* Header / Title */}
       <div className={styles.header}>
         <div>
-          <h2 className={styles.title}>{project.title}</h2>
+          <h3 className={styles.title}>{project.title}</h3>
           {project.subtitle && <p className={styles.subtitle}>{project.subtitle}</p>}
         </div>
         {project.year && <Tag>{project.year}</Tag>}

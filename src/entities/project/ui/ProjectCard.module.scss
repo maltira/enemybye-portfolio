@@ -26,6 +26,11 @@
   &:active {
     transform: scale(0.98);
   }
+
+  &:focus-visible {
+    outline: 2px solid $text-dark-gray;
+    outline-offset: 2px;
+  }
 }
 
 .thumbnailWrapper {

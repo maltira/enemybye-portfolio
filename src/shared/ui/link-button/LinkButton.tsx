@@ -12,7 +12,7 @@ export interface LinkButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement>
 export const LinkButton = ({
   href,
   iconSrc,
-  iconAlt = 'icon',
+  iconAlt = '',
   children,
   className = '',
   ...props

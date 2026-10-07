@@ -3,18 +3,17 @@
   flex-direction: column;
   align-items: center;
 
-  h1 {
-    @include font-h1-regular;
-    text-align: center;
-    color: $primary-black;
+  // Typography is set once on the heading; the <span> lines inherit it
+  @include font-h1-regular;
+  text-align: center;
+  color: $primary-black;
 
-    @media (max-width: 768px) {
-      font-size: 38px;
-    }
+  @media (max-width: 768px) {
+    font-size: 38px;
+  }
 
-    @media (max-width: 480px) {
-      font-size: 32px;
-    }
+  @media (max-width: 480px) {
+    font-size: 32px;
   }
 }
 
@@ -26,19 +25,8 @@
   flex-wrap: wrap;
   gap: 10px;
 
-  h1 {
-    @include font-h1-regular;
-    text-align: center;
-    color: $primary-black;
-
-    @media (max-width: 768px) {
-      font-size: 38px;
-    }
-
-    @media (max-width: 480px) {
-      font-size: 32px;
-      letter-spacing: -0.5px;
-    }
+  @media (max-width: 480px) {
+    letter-spacing: -0.5px;
   }
 
   img {

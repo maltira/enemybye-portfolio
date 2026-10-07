@@ -7,19 +7,19 @@ export const Hero = () => {
     <Container className={styles.hero}>
       {/* Avatar Section */}
       <div className={styles.avatarContainer}>
-        <img className={styles.avatar} src={avatarImg} alt="avatar" width={160} height={160} />
+        <img className={styles.avatar} src={avatarImg} alt="Аватар enemybye" width={160} height={160} />
         <p className={styles.author}>@enemybye.dev</p>
       </div>
 
       {/* Title */}
       <div className={styles.titleWrapper}>
-        <TitleContainer>
+        <TitleContainer as="h1">
           <TextWithIcon>
-            <h1>Full-stack</h1>
-            <img src={stackPlusIcon} alt="icon" />
-            <h1>developer</h1>
-          </TextWithIcon>
-          <h1>& UX/UI Designer</h1>
+            <span>Full-stack</span>{' '}
+            <img src={stackPlusIcon} alt="" />{' '}
+            <span>developer</span>
+          </TextWithIcon>{' '}
+          <span>& UX/UI Designer</span>
         </TitleContainer>
       </div>
     </Container>

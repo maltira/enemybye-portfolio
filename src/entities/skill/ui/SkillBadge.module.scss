@@ -4,10 +4,12 @@
   align-items: center;
   justify-content: center;
 
-  cursor: pointer;
   user-select: none;
+  outline: none;
+  border-radius: $radius-md;
 
-  &:hover {
+  &:hover,
+  &:focus {
     .icon {
       transform: translateY(-4px) scale(1.1);
     }
@@ -17,6 +19,11 @@
       visibility: visible;
       transform: translateX(-50%) translateY(-20%);
     }
+  }
+
+  &:focus-visible {
+    outline: 2px solid $text-dark-gray;
+    outline-offset: 4px;
   }
 }
 
