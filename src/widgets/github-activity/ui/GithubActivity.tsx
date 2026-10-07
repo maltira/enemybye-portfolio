@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect, useState } from 'react'
 import type { Activity } from 'react-activity-calendar'
 import { Container, LinkButton, TextWithIcon, TitleContainer } from '@/shared/ui'
 import { githubBlackIcon, githubGrayIcon } from '@/shared/assets'
-import { useDragScroll } from '@/shared/lib'
+import { useColorScheme, useDragScroll } from '@/shared/lib'
 import { SITE_CONFIG } from '@/shared/config'
 import styles from './GithubActivity.module.scss'
 
@@ -42,6 +42,7 @@ export const GithubActivity = () => {
   const [loading, setLoading] = useState(data.length === 0)
   const [hasError, setHasError] = useState(false)
   const { ref: calendarRef } = useDragScroll<HTMLDivElement>()
+  const colorScheme = useColorScheme()
 
   useEffect(() => {
     if (!loading) return
@@ -101,7 +102,7 @@ export const GithubActivity = () => {
             <ActivityCalendar
               data={data}
               loading={loading}
-              colorScheme="light"
+              colorScheme={colorScheme}
               showMonthLabels={true}
               showWeekdayLabels={false}
               blockSize={16}
@@ -110,6 +111,7 @@ export const GithubActivity = () => {
               fontSize={14}
               theme={{
                 light: ['#e8eaee', '#93e7a2', '#3ebe5e', '#2f984a', '#216435'],
+                dark: ['#1f1f1f', '#0e4429', '#006d32', '#26a641', '#39d353'],
               }}
               labels={{
                 totalCount: '{{count}} contributions in the last year',

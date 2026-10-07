@@ -1,5 +1,19 @@
 @use './variables.scss' as *;
 
+// Theme Mixins
+
+@mixin dark-theme {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+
+@mixin mono-icon {
+  @include dark-theme {
+    filter: invert(1);
+  }
+}
+
 // Typography Mixins
 
 // H1

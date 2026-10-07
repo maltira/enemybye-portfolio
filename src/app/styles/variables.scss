@@ -1,13 +1,20 @@
+@use 'sass:math';
+
 // Fonts
 $font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-// Colors
-$primary-white: #ffffff;
-$primary-black: #0d0d0d;
-$background: #f0f0f0;
-$border-light-gray: #d9d9d9;
-$text-muted-gray: #9c9a99;
-$text-dark-gray: #3d3d3b;
+$surface: var(--color-surface);
+$surface-muted: var(--color-surface-muted);
+$surface-hover: var(--color-surface-hover);
+$border: var(--color-border);
+$text-primary: var(--color-text-primary);
+$text-secondary: var(--color-text-secondary);
+$text-muted: var(--color-text-muted);
+$overlay: var(--color-overlay);
+
+@function fade($color, $amount) {
+  @return color-mix(in srgb, #{$color} math.percentage($amount), transparent);
+}
 
 // Radiuses
 $radius-sm: 6px;

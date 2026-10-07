@@ -19,7 +19,7 @@
 
 .footerText {
   @include font-main-regular;
-  color: $text-dark-gray;
+  color: $text-secondary;
 }
 
 .contactLinks {
@@ -37,7 +37,7 @@
 
     @media (hover: hover) and (pointer: fine) {
       &:hover {
-        color: $primary-black;
+        color: $text-primary;
       }
     }
   }

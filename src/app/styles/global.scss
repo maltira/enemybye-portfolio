@@ -1,5 +1,30 @@
 @use './fonts.scss';
 
+// Theme colors follow the OS / browser setting
+:root {
+  color-scheme: light dark;
+
+  --color-surface: #ffffff;
+  --color-surface-muted: #f0f0f0;
+  --color-surface-hover: #fafafa;
+  --color-border: #d9d9d9;
+  --color-text-primary: #0d0d0d;
+  --color-text-secondary: #3d3d3b;
+  --color-text-muted: #9c9a99;
+  --color-overlay: rgba(0, 0, 0, 0.25);
+
+  @include dark-theme {
+    --color-surface: #121212;
+    --color-surface-muted: #1f1f1f;
+    --color-surface-hover: #181818;
+    --color-border: #333333;
+    --color-text-primary: #f2f2f2;
+    --color-text-secondary: #c8c8c6;
+    --color-text-muted: #8c8a89;
+    --color-overlay: rgba(0, 0, 0, 0.6);
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -27,8 +52,8 @@ html,
 body {
   height: 100%;
   font-family: $font-family;
-  background-color: $primary-white;
-  color: $primary-black;
+  background-color: $surface;
+  color: $text-primary;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -60,11 +85,11 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $border-light-gray;
+  background: $border;
   border-radius: 4px;
 
   &:hover {
-    background: $text-muted-gray;
+    background: $text-muted;
   }
 }
 

@@ -6,6 +6,7 @@ export interface LinkButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement>
   href: string
   iconSrc?: string
   iconAlt?: string
+  iconTone?: 'mono' | 'color'
   children: ReactNode
   className?: string
 }
@@ -14,6 +15,7 @@ export const LinkButton = ({
   href,
   iconSrc,
   iconAlt = '',
+  iconTone = 'mono',
   children,
   className,
   ...props
@@ -26,7 +28,7 @@ export const LinkButton = ({
       className={cn(styles.linkButton, className)}
       {...props}
     >
-      {iconSrc && <img src={iconSrc} alt={iconAlt} className={styles.icon} />}
+      {iconSrc && <img src={iconSrc} alt={iconAlt} className={cn(styles.icon, iconTone === 'mono' && styles.monoIcon)} />}
       <span>{children}</span>
     </a>
   )

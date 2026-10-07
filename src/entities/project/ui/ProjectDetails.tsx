@@ -68,7 +68,7 @@ export const ProjectDetails = ({ project }: ProjectDetailsProps) => {
           </LinkButton>
         )}
         {project.figmaUrl && (
-          <LinkButton href={project.figmaUrl} iconSrc={figmaIcon}>
+          <LinkButton href={project.figmaUrl} iconSrc={figmaIcon} iconTone="color">
             Figma
           </LinkButton>
         )}

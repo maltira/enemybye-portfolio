@@ -13,14 +13,14 @@
   padding: 8px 0;
   -webkit-overflow-scrolling: touch;
 
-  background-color: $primary-white;
+  background-color: $surface;
 
   &::-webkit-scrollbar {
     height: 4px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: $border-light-gray;
+    background: $border;
     border-radius: 4px;
   }
 
@@ -32,7 +32,7 @@
 
     svg text {
       @include font-tag-regular;
-      fill: $text-muted-gray !important;
+      fill: $text-muted !important;
       font-family: $font-family !important;
 
       @media (max-width: 480px) {
@@ -48,7 +48,7 @@
       margin-top: 8px;
       width: 100%;
 
-      color: $text-muted-gray;
+      color: $text-muted;
 
       @media (max-width: 480px) {
         font-size: 12px;
@@ -70,13 +70,13 @@
   gap: 16px;
   padding: 32px 16px;
   width: 100%;
-  background-color: $background;
-  border: 1px solid rgba($border-light-gray, 0.5);
+  background-color: $surface-muted;
+  border: 1px solid fade($border, 0.5);
   border-radius: $radius-lg;
 
   .fallbackText {
     @include font-main-regular;
-    color: $text-muted-gray;
+    color: $text-muted;
     text-align: center;
   }
 }

@@ -39,7 +39,7 @@
   .title {
     @include font-main-medium;
     font-size: 26px;
-    color: $primary-black;
+    color: $text-primary;
 
     @media (max-width: 768px) {
       font-size: 20px;
@@ -48,7 +48,7 @@
 
   .subtitle {
     @include font-main-regular;
-    color: $text-muted-gray;
+    color: $text-muted;
     margin-top: 4px;
   }
 }
@@ -60,12 +60,12 @@
 
   .sectionTitle {
     @include font-main-medium;
-    color: $primary-black;
+    color: $text-primary;
   }
 
   .description {
     @include font-main-regular;
-    color: $text-dark-gray;
+    color: $text-secondary;
     line-height: 150%;
   }
 
@@ -76,7 +76,7 @@
 
     li {
       @include font-main-regular;
-      color: $text-dark-gray;
+      color: $text-secondary;
       line-height: 150%;
     }
   }
@@ -95,5 +95,5 @@
 
   margin-top: 8px;
   padding-top: 16px;
-  border-top: 1px solid rgba($border-light-gray, 0.5);
+  border-top: 1px solid fade($border, 0.5);
 }

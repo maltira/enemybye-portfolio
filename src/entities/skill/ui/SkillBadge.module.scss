@@ -22,7 +22,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid $text-dark-gray;
+    outline: 2px solid $text-secondary;
     outline-offset: 4px;
   }
 }
@@ -46,8 +46,8 @@
   z-index: 20;
 
   @include font-xs-medium;
-  color: $primary-white;
-  background-color: $primary-black;
+  color: $surface;
+  background-color: $text-primary;
   padding: 4px 8px;
   border-radius: $radius-sm;
   white-space: nowrap;
@@ -63,6 +63,6 @@
     transform: translateX(-50%);
     border-width: 4px 4px 0 4px;
     border-style: solid;
-    border-color: $primary-black transparent transparent transparent;
+    border-color: $text-primary transparent transparent transparent;
   }
 }

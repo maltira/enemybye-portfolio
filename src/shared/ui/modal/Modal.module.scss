@@ -4,7 +4,7 @@
   justify-content: center;
   position: fixed;
   inset: 0;
-  background-color: rgba($primary-black, 0.25);
+  background-color: $overlay;
   z-index: 100;
 
   @media (max-width: 768px) {
@@ -19,8 +19,8 @@
   max-height: 88vh;
   max-height: 88dvh;
   overflow-y: auto;
-  background-color: $primary-white;
-  border: 1px solid $border-light-gray;
+  background-color: $surface;
+  border: 1px solid $border;
   border-radius: 32px;
   box-shadow: -4px 4px 24px rgba(0, 0, 0, 0.04);
   padding: 32px;
@@ -37,7 +37,7 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background: $border-light-gray;
+    background: $border;
     border-radius: $radius-full;
   }
 }
@@ -66,12 +66,16 @@
   justify-content: center;
   background-color: transparent;
   border-radius: $radius-full;
-  color: $text-dark-gray;
+  color: $text-secondary;
   transition: $transition-fast;
   cursor: pointer;
 
   &:hover {
-    background-color: $background;
+    background-color: $surface-muted;
+  }
+
+  img {
+    @include mono-icon;
   }
 }
 

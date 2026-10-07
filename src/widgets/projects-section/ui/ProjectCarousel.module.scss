@@ -18,7 +18,7 @@
   height: 36px;
 
   border-radius: $radius-full;
-  background-color: $background;
+  background-color: $surface-muted;
 
   display: flex;
   align-items: center;
@@ -31,17 +31,18 @@
     width: 18px;
     height: 18px;
     user-select: none;
+    @include mono-icon;
   }
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      background-color: rgba($text-dark-gray, 0.1);
+      background-color: fade($text-secondary, 0.1);
     }
   }
 
   &:active {
     transform: scale(0.95);
-    background-color: rgba($text-dark-gray, 0.15);
+    background-color: fade($text-secondary, 0.15);
   }
 
   &.disabled {

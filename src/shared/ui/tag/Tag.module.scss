@@ -1,8 +1,8 @@
 .tag {
   @include font-tag-regular;
 
-  background-color: $background;
-  color: $text-muted-gray;
+  background-color: $surface-muted;
+  color: $text-muted;
 
   padding: 2px 8px;
   border-radius: $radius-sm;
