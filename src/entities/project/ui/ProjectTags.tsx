@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { Tag } from '@/shared/ui'
-import styles from './ProjectCard.module.scss'
+import styles from './ProjectTags.module.scss'
 
 interface ProjectTagsProps {
   tags: string[]

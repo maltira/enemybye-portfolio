@@ -4,6 +4,7 @@ import { ProjectCard } from '@/entities/project'
 import { arrowLeftIcon, arrowRightIcon } from '@/shared/assets'
 import { useDragScroll } from '@/shared/lib'
 import styles from './ProjectCarousel.module.scss'
+import { cn } from '@/shared/lib'
 
 interface ProjectCarouselProps {
   projects: Project[]
@@ -60,7 +61,7 @@ export const ProjectCarousel = ({ projects, onSelectProject }: ProjectCarouselPr
       </div>
       <div className={styles.controls}>
         <button
-          className={`${styles.arrowButton} ${!canScrollLeft ? styles.disabled : ''}`}
+          className={cn(styles.arrowButton, !canScrollLeft && styles.disabled)}
           onClick={() => handleScroll('left')}
           disabled={!canScrollLeft}
           aria-label="Предыдущий проект"
@@ -68,7 +69,7 @@ export const ProjectCarousel = ({ projects, onSelectProject }: ProjectCarouselPr
           <img src={arrowLeftIcon} alt="" />
         </button>
         <button
-          className={`${styles.arrowButton} ${!canScrollRight ? styles.disabled : ''}`}
+          className={cn(styles.arrowButton, !canScrollRight && styles.disabled)}
           onClick={() => handleScroll('right')}
           disabled={!canScrollRight}
           aria-label="Следующий проект"

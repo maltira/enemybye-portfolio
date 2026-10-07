@@ -14,7 +14,7 @@ export const Footer = () => {
         <LinkButton href={SITE_CONFIG.github} iconSrc={githubGrayIcon} className={styles.contactLink}>Github</LinkButton>
       </div>
       <p className={styles.footerText}>
-        © 2026 enemybye. All rights reserved
+        © {new Date().getFullYear()} enemybye. All rights reserved
       </p>
     </footer>
   )

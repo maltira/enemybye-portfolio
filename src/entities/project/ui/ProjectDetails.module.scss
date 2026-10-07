@@ -1,10 +1,10 @@
 .details {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
 
   @media (max-width: 768px) {
-    gap: 16px;
+    gap: 24px;
   }
 }
 
@@ -24,6 +24,17 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 16px;
+
+  @media (max-width: 480px) {
+    flex-direction: column-reverse;
+    gap: 12px;
+  }
+
+  .meta {
+    display: flex;
+    flex-shrink: 0;
+    gap: 4px;
+  }
 
   .title {
     @include font-main-medium;

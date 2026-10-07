@@ -13,10 +13,10 @@ export const Header = () => {
       </div>
       <div className={styles.linkButtons}>
         <LinkButton href={SITE_CONFIG.telegram} iconSrc={telegramIcon}>
-          <span>Telegram</span>
+          Telegram
         </LinkButton>
         <LinkButton href={SITE_CONFIG.github} iconSrc={githubGrayIcon}>
-          <span>Github</span>
+          Github
         </LinkButton>
       </div>
     </header>

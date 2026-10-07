@@ -2,6 +2,7 @@ import { useEffect, useId, useRef, type ReactNode } from 'react'
 import { createPortal } from 'react-dom'
 import styles from './Modal.module.scss'
 import { closeIcon } from '@/shared/assets'
+import { cn } from '@/shared/lib'
 
 export interface ModalProps {
   isOpen: boolean
@@ -14,7 +15,7 @@ export interface ModalProps {
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
 
-export const Modal = ({ isOpen, onClose, title = 'О проекте', children, className = '' }: ModalProps) => {
+export const Modal = ({ isOpen, onClose, title = 'О проекте', children, className }: ModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null)
   const closeButtonRef = useRef<HTMLButtonElement>(null)
   const titleId = useId()
@@ -67,7 +68,7 @@ export const Modal = ({ isOpen, onClose, title = 'О проекте', children, 
     <div className={styles.overlay} onClick={onClose}>
       <div
         ref={modalRef}
-        className={`${styles.modal} ${className}`}
+        className={cn(styles.modal, className)}
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"

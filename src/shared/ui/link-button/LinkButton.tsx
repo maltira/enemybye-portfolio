@@ -1,5 +1,6 @@
 import type { AnchorHTMLAttributes, ReactNode } from 'react'
 import styles from './LinkButton.module.scss'
+import { cn } from '@/shared/lib'
 
 export interface LinkButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string
@@ -14,7 +15,7 @@ export const LinkButton = ({
   iconSrc,
   iconAlt = '',
   children,
-  className = '',
+  className,
   ...props
 }: LinkButtonProps) => {
   return (
@@ -22,7 +23,7 @@ export const LinkButton = ({
       href={href}
       target='_blank'
       rel='noopener noreferrer'
-      className={`${styles.linkButton} ${className}`}
+      className={cn(styles.linkButton, className)}
       {...props}
     >
       {iconSrc && <img src={iconSrc} alt={iconAlt} className={styles.icon} />}

@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import { Container, TextWithIcon, TitleContainer } from '@/shared/ui'
 import { layerSparkleIcon } from '@/shared/assets'
-import type { Project } from '@/entities/project'
+import { PROJECTS_DATA, type Project } from '@/entities/project'
 import { ProjectModal } from '@/features/project-modal'
 import { ProjectCarousel } from './ProjectCarousel'
-import { PROJECTS_DATA } from '../model/projects.data'
 import styles from './ProjectsSection.module.scss'
 
 export const ProjectsSection = () => {

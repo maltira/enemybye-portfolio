@@ -1,5 +1,5 @@
-import type { Project } from '@/entities/project'
-import { kktProjectThumbnail, liveProjectThumbnail, notelyProjectThumbnail, portfolioProjectThumbnail } from '@/shared/assets'
+import type { Project } from './types'
+import { kktProjectThumbnail, chavoProjectThumbnail, notelyProjectThumbnail, portfolioProjectThumbnail } from '@/shared/assets'
 
 
 export const PROJECTS_DATA: Project[] = [
@@ -84,7 +84,7 @@ export const PROJECTS_DATA: Project[] = [
     ],
     githubUrl: "https://github.com/maltira/chavo-project",
     figmaUrl: "https://www.figma.com/design/AJ1GRYduabJrLfzYBETS4X/Chavo?node-id=0-1&t=taP3kCorgt5cSTHB-1",
-    thumbnail: liveProjectThumbnail,
+    thumbnail: chavoProjectThumbnail,
     year: "2026"
   },
   {

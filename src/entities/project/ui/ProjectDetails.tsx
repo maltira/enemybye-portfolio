@@ -24,9 +24,12 @@ export const ProjectDetails = ({ project }: ProjectDetailsProps) => {
       <div className={styles.header}>
         <div>
           <h3 className={styles.title}>{project.title}</h3>
-          {project.subtitle && <p className={styles.subtitle}>{project.subtitle}</p>}
+          <p className={styles.subtitle}>{project.subtitle}</p>
         </div>
-        {project.year && <Tag>{project.year}</Tag>}
+        <div className={styles.meta}>
+          <Tag>{project.category}</Tag>
+          <Tag>{project.year}</Tag>
+        </div>
       </div>
 
       {/* About project */}
@@ -36,7 +39,7 @@ export const ProjectDetails = ({ project }: ProjectDetailsProps) => {
       </div>
 
       {/* Highlights */}
-      {project.highlights && project.highlights.length > 0 && (
+      {project.highlights.length > 0 && (
         <div className={styles.section}>
           <h4 className={styles.sectionTitle}>Ключевые особенности</h4>
           <ul className={styles.highlights}>

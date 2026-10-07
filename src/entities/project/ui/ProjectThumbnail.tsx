@@ -1,6 +1,7 @@
 import { albumNotFoundIcon } from '@/shared/assets'
 import type { ProjectThumbnailSource } from '../model/types'
 import styles from './ProjectThumbnail.module.scss'
+import { cn } from '@/shared/lib'
 
 interface ProjectThumbnailProps {
   source?: ProjectThumbnailSource
@@ -9,9 +10,9 @@ interface ProjectThumbnailProps {
   className?: string
 }
 
-export const ProjectThumbnail = ({ source, sizes, alt = 'Project cover', className = '' }: ProjectThumbnailProps) => {
+export const ProjectThumbnail = ({ source, sizes, alt = 'Project cover', className }: ProjectThumbnailProps) => {
   return (
-    <div className={`${styles.imageWrapper} ${className}`}>
+    <div className={cn(styles.imageWrapper, className)}>
       {source ? (
         <img
           src={source.large}
