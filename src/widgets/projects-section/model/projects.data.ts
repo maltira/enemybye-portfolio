@@ -56,6 +56,38 @@ export const PROJECTS_DATA: Project[] = [
     year: "2026"
   },
   {
+    id: "chavo-project",
+    title: "Chavo Messenger",
+    subtitle: "Микросервисный real-time мессенджер на Go & React",
+    category: "Full-stack",
+    description: "Real-time мессенджер в одном репозитории: микросервисный backend на Go и клиентская часть на React и TypeScript. Backend разделён на сервисы авторизации, пользователей и чатов с API Gateway, а обмен сообщениями в реальном времени строится на WebSocket, Kafka и Redis.",
+    tags: [
+      "Go",
+      "Kafka",
+      "WebSocket",
+      "PostgreSQL",
+      "Redis",
+      "gRPC",
+      "React",
+      "TypeScript",
+      "Zustand",
+      "Tanstack Query",
+    ],
+    highlights: [
+      "Микросервисная архитектура с отдельными сервисами авторизации, пользователей и чатов",
+      "API Gateway как единая точка входа для клиентских запросов с взаимодействием через gRPC между сервисами",
+      "Real-time обмен сообщениями через WebSocket",
+      "Асинхронное взаимодействие сервисов через Kafka, Redis для быстрого хранения и обмена данными",
+      "Управление состоянием клиента с помощью Zustand и Tanstack Query",
+      "Компонентная архитектура на React и TypeScript",
+      "Контейнеризация сервисов и инфраструктуры с помощью Docker Compose"
+    ],
+    githubUrl: "https://github.com/maltira/chavo-project",
+    figmaUrl: "https://www.figma.com/design/AJ1GRYduabJrLfzYBETS4X/Chavo?node-id=0-1&t=taP3kCorgt5cSTHB-1",
+    thumbnailUrl: liveProjectThumbnail,
+    year: "2026"
+  },
+  {
     id: "notely-backend",
     title: "Notely (backend)",
     subtitle: "Backend для социальной платформы публикаций",
@@ -101,55 +133,4 @@ export const PROJECTS_DATA: Project[] = [
     thumbnailUrl: notelyProjectThumbnail,
     year: "2026"
   },
-  {
-    id: "live-backend",
-    title: "Live Messenger (backend)",
-    subtitle: "Микросервисный backend для real-time мессенджера",
-    category: "Backend",
-    description: "Backend-часть мессенджера Live, построенная на микросервисной архитектуре. Система разделена на сервисы авторизации, пользователей, чатов и API Gateway, а для обмена сообщениями и работы в реальном времени использует RabbitMQ, Redis и WebSocket.",
-    tags: [
-      "Go",
-      "Microservices",
-      "RabbitMQ",
-      "Redis",
-      "WebSocket",
-      "Docker",
-      "PostgreSQL"
-    ],
-    highlights: [
-      "Микросервисная архитектура с отдельными сервисами авторизации, пользователей и чатов",
-      "Real-time обмен сообщениями через WebSocket",
-      "Асинхронное взаимодействие сервисов через RabbitMQ",
-      "Redis для высокопроизводительного хранения и обмена данными",
-      "API Gateway как единая точка входа для клиентских запросов",
-      "Контейнеризация сервисов и инфраструктуры с помощью Docker Compose"
-    ],
-    githubUrl: "https://github.com/maltira/LiveBackend",
-    year: "2026"
-  },
-  {
-    id: "live-messenger",
-    title: "Live Messenger",
-    subtitle: "Real-time мессенджер на Vue.js",
-    category: "Frontend",
-    description: "Клиентская часть real-time мессенджера, разработанная на Vue 3 и TypeScript. Приложение взаимодействует с backend через WebSocket и предоставляет интерфейс для обмена сообщениями в реальном времени.",
-    tags: [
-      "Vue 3",
-      "TypeScript",
-      "Pinia",
-      "WebSocket",
-      "Vite"
-    ],
-    highlights: [
-      "Real-time обмен сообщениями через WebSocket",
-      "Управление состоянием приложения с помощью Pinia",
-      "Компонентная архитектура на Vue 3 и TypeScript",
-      "Интеграция с отдельным backend-сервисом мессенджера",
-      "Сборка и development workflow на Vite"
-    ],
-    githubUrl: "https://github.com/maltira/LiveMessenger",
-    figmaUrl: "https://www.figma.com/design/AJ1GRYduabJrLfzYBETS4X/Chavo?node-id=0-1&t=taP3kCorgt5cSTHB-1",
-    thumbnailUrl: liveProjectThumbnail,
-    year: "2026"
-  }
 ]
