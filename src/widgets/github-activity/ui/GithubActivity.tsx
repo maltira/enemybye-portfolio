@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import { ActivityCalendar, type Activity } from 'react-activity-calendar'
+import { lazy, Suspense, useEffect, useState } from 'react'
+import type { Activity } from 'react-activity-calendar'
 import { Container } from '@/shared/ui/container'
 import { TextWithIcon, TitleContainer } from '@/shared/ui/title-container'
 import { LinkButton } from '@/shared/ui/link-button'
@@ -7,6 +7,11 @@ import { githubBlackIcon, githubGrayIcon } from '@/shared/assets'
 import { useDragScroll } from '@/shared/lib'
 import { SITE_CONFIG } from '@/shared/config'
 import styles from './GithubActivity.module.scss'
+
+// The calendar library is below the fold — keep it out of the main bundle
+const ActivityCalendar = lazy(() =>
+  import('react-activity-calendar').then((m) => ({ default: m.ActivityCalendar }))
+)
 
 interface ApiResponse {
   total: Record<string, number>
@@ -94,31 +99,33 @@ export const GithubActivity = () => {
             </LinkButton>
           </div>
         ) : (
-          <ActivityCalendar
-            data={data}
-            loading={loading}
-            colorScheme="light"
-            showMonthLabels={true}
-            showWeekdayLabels={false}
-            blockSize={16}
-            blockRadius={4}
-            blockMargin={4}
-            fontSize={14}
-            theme={{
-              light: ['#e8eaee', '#93e7a2', '#3ebe5e', '#2f984a', '#216435'],
-            }}
-            labels={{
-              totalCount: '{{count}} contributions in the last year',
-              months: [
-                'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-              ],
-              legend: {
-                less: 'Less',
-                more: 'More',
-              },
-            }}
-          />
+          <Suspense fallback={<div className={styles.calendarPlaceholder} />}>
+            <ActivityCalendar
+              data={data}
+              loading={loading}
+              colorScheme="light"
+              showMonthLabels={true}
+              showWeekdayLabels={false}
+              blockSize={16}
+              blockRadius={4}
+              blockMargin={4}
+              fontSize={14}
+              theme={{
+                light: ['#e8eaee', '#93e7a2', '#3ebe5e', '#2f984a', '#216435'],
+              }}
+              labels={{
+                totalCount: '{{count}} contributions in the last year',
+                months: [
+                  'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+                ],
+                legend: {
+                  less: 'Less',
+                  more: 'More',
+                },
+              }}
+            />
+          </Suspense>
         )}
       </div>
     </Container>

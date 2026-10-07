@@ -1,3 +1,8 @@
+export interface ProjectThumbnailSource {
+  small: string
+  large: string
+}
+
 export interface Project {
   id: string
   title: string
@@ -8,6 +13,6 @@ export interface Project {
   highlights: string[]
   githubUrl?: string
   figmaUrl?: string
-  thumbnailUrl?: string
+  thumbnail?: ProjectThumbnailSource
   year: string
 }

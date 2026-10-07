@@ -29,11 +29,16 @@ export const ProjectCarousel = ({ projects, onSelectProject }: ProjectCarouselPr
   }, [checkScrollBounds, projects])
 
   const handleScroll = (direction: 'left' | 'right') => {
-    if (!scrollRef.current) return
-    const scrollAmount = 332 // Card width + gap
-    scrollRef.current.scrollBy({
+    const track = scrollRef.current
+    if (!track) return
+    // Card width + gap
+    const card = track.firstElementChild as HTMLElement | null
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 0
+    const scrollAmount = (card?.offsetWidth ?? track.clientWidth) + gap
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    track.scrollBy({
       left: direction === 'left' ? -scrollAmount : scrollAmount,
-      behavior: 'smooth',
+      behavior: prefersReducedMotion ? 'auto' : 'smooth',
     })
   }
 

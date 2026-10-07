@@ -7,7 +7,7 @@ export const Hero = () => {
     <Container className={styles.hero}>
       {/* Avatar Section */}
       <div className={styles.avatarContainer}>
-        <img className={styles.avatar} src={avatarImg} alt="avatar" />
+        <img className={styles.avatar} src={avatarImg} alt="avatar" width={160} height={160} />
         <p className={styles.author}>@enemybye.dev</p>
       </div>
 

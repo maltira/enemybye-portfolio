@@ -24,7 +24,7 @@ export const PROJECTS_DATA: Project[] = [
     ],
     githubUrl: "https://github.com/maltira/enemybye-portfolio",
     figmaUrl: "https://www.figma.com/design/ZypndvHD18XS6fImiruqlg/Portfolio---Enemybye?node-id=1-2&t=taP3kCorgt5cSTHB-1",
-    thumbnailUrl: portfolioProjectThumbnail,
+    thumbnail: portfolioProjectThumbnail,
     year: "2026"
   },
   {
@@ -52,7 +52,7 @@ export const PROJECTS_DATA: Project[] = [
     ],
     githubUrl: "https://github.com/maltira/kkt-project",
     figmaUrl: "https://www.figma.com/design/LGPkrhYrMrJ3Fme7icyYnX/KKT?node-id=0-1&t=taP3kCorgt5cSTHB-1",
-    thumbnailUrl: kktProjectThumbnail,
+    thumbnail: kktProjectThumbnail,
     year: "2026"
   },
   {
@@ -84,7 +84,7 @@ export const PROJECTS_DATA: Project[] = [
     ],
     githubUrl: "https://github.com/maltira/chavo-project",
     figmaUrl: "https://www.figma.com/design/AJ1GRYduabJrLfzYBETS4X/Chavo?node-id=0-1&t=taP3kCorgt5cSTHB-1",
-    thumbnailUrl: liveProjectThumbnail,
+    thumbnail: liveProjectThumbnail,
     year: "2026"
   },
   {
@@ -130,7 +130,7 @@ export const PROJECTS_DATA: Project[] = [
     ],
     githubUrl: "https://github.com/maltira/Notely",
     figmaUrl: "https://www.figma.com/design/4PhDPjcNfz3QovyOKzgScL/Notely?node-id=7-794&t=taP3kCorgt5cSTHB-1",
-    thumbnailUrl: notelyProjectThumbnail,
+    thumbnail: notelyProjectThumbnail,
     year: "2026"
   },
 ]

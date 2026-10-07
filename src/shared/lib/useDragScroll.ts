@@ -8,61 +8,54 @@ export const useDragScroll = <T extends HTMLElement = HTMLDivElement>() => {
     const slider = ref.current
     if (!slider) return
 
-    let isDown = false
     let startX = 0
     let scrollLeft = 0
-
-    const onMouseDown = (e: MouseEvent) => {
-      // Only handle main left click
-      if (e.button !== 0) return
-      isDown = true
-      isDraggingRef.current = false
-      startX = e.pageX - slider.offsetLeft
-      scrollLeft = slider.scrollLeft
-      slider.style.cursor = 'grabbing'
-      slider.style.userSelect = 'none'
-    }
-
-    const onMouseLeave = () => {
-      if (!isDown) return
-      isDown = false
-      slider.style.cursor = 'grab'
-      slider.style.removeProperty('user-select')
-    }
-
-    const onMouseUp = () => {
-      if (!isDown) return
-      isDown = false
-      slider.style.cursor = 'grab'
-      slider.style.removeProperty('user-select')
-      // Reset isDragging after click event has fired
-      setTimeout(() => {
-        isDraggingRef.current = false
-      }, 60)
-    }
+    let resetTimeoutId = 0
 
     const onMouseMove = (e: MouseEvent) => {
-      if (!isDown) return
-      const x = e.pageX - slider.offsetLeft
-      const walk = (x - startX) * 1.3
+      const walk = (e.clientX - startX) * 1.3
       if (Math.abs(walk) > 4) {
         isDraggingRef.current = true
       }
       slider.scrollLeft = scrollLeft - walk
     }
 
-    slider.addEventListener('mousedown', onMouseDown)
-    slider.addEventListener('mouseleave', onMouseLeave)
-    window.addEventListener('mouseup', onMouseUp)
-    window.addEventListener('mousemove', onMouseMove)
+    const endDrag = () => {
+      window.removeEventListener('mousemove', onMouseMove)
+      window.removeEventListener('mouseup', onMouseUp)
+      slider.style.cursor = 'grab'
+      slider.style.removeProperty('user-select')
+    }
 
+    const onMouseUp = () => {
+      endDrag()
+      // Reset isDragging after click event has fired
+      resetTimeoutId = window.setTimeout(() => {
+        isDraggingRef.current = false
+      }, 60)
+    }
+
+    // Window listeners live only for the duration of a drag
+    const onMouseDown = (e: MouseEvent) => {
+      // Only handle main left click
+      if (e.button !== 0) return
+      clearTimeout(resetTimeoutId)
+      isDraggingRef.current = false
+      startX = e.clientX
+      scrollLeft = slider.scrollLeft
+      slider.style.cursor = 'grabbing'
+      slider.style.userSelect = 'none'
+      window.addEventListener('mousemove', onMouseMove)
+      window.addEventListener('mouseup', onMouseUp)
+    }
+
+    slider.addEventListener('mousedown', onMouseDown)
     slider.style.cursor = 'grab'
 
     return () => {
+      clearTimeout(resetTimeoutId)
+      endDrag()
       slider.removeEventListener('mousedown', onMouseDown)
-      slider.removeEventListener('mouseleave', onMouseLeave)
-      window.removeEventListener('mouseup', onMouseUp)
-      window.removeEventListener('mousemove', onMouseMove)
     }
   }, [])
 

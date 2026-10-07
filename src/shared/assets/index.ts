@@ -22,13 +22,22 @@ import redisIcon from './icons/redis-icon.svg'
 import tsIcon from './icons/ts-icon.svg'
 import vueIcon from './icons/vue-icon.svg'
 
-import avatarImg from './images/image.png'
+import avatarImg from './images/avatar.webp'
 
-// Thumbnails
-import kktProjectThumbnail from './images/kkt-project-thumbnail.png'
-import portfolioProjectThumbnail from "./images/portfolio-project-thumbnail.png"
-import notelyProjectThumbnail from "./images/notely-project-thumbnail.png"
-import liveProjectThumbnail from "./images/live-project-thumbnail.jpg"
+
+import kktThumbnail600 from './images/kkt-project-thumbnail-600.webp'
+import kktThumbnail1280 from './images/kkt-project-thumbnail-1280.webp'
+import portfolioThumbnail600 from './images/portfolio-project-thumbnail-600.webp'
+import portfolioThumbnail1280 from './images/portfolio-project-thumbnail-1280.webp'
+import notelyThumbnail600 from './images/notely-project-thumbnail-600.webp'
+import notelyThumbnail1280 from './images/notely-project-thumbnail-1280.webp'
+import liveThumbnail600 from './images/live-project-thumbnail-600.webp'
+import liveThumbnail1280 from './images/live-project-thumbnail-1280.webp'
+
+const kktProjectThumbnail = { small: kktThumbnail600, large: kktThumbnail1280 }
+const portfolioProjectThumbnail = { small: portfolioThumbnail600, large: portfolioThumbnail1280 }
+const notelyProjectThumbnail = { small: notelyThumbnail600, large: notelyThumbnail1280 }
+const liveProjectThumbnail = { small: liveThumbnail600, large: liveThumbnail1280 }
 
 export {
   albumNotFoundIcon,

@@ -13,7 +13,7 @@ export const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
     <div className={styles.card} onClick={() => onClick?.(project)}>
       {/* Thumbnail */}
       <div className={styles.thumbnailWrapper}>
-        <ProjectThumbnail src={project.thumbnailUrl} alt={project.title} />
+        <ProjectThumbnail source={project.thumbnail} sizes="284px" alt={project.title} />
       </div>
 
       {/* Content */}

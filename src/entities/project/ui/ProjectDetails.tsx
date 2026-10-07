@@ -13,7 +13,11 @@ export const ProjectDetails = ({ project }: ProjectDetailsProps) => {
     <div className={styles.details}>
       {/* Thumbnail */}
       <div className={styles.thumbnailWrapper}>
-        <ProjectThumbnail src={project.thumbnailUrl} alt={project.title} />
+        <ProjectThumbnail
+          source={project.thumbnail}
+          sizes="(max-width: 768px) calc(100vw - 72px), 616px"
+          alt={project.title}
+        />
       </div>
 
       {/* Header / Title */}

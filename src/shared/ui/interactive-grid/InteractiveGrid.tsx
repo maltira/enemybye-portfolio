@@ -7,24 +7,44 @@ export const InteractiveGrid = () => {
   useEffect(() => {
     // Only attach mouse tracking on devices with pointer/mouse
     const isHoverDevice = window.matchMedia('(hover: hover) and (pointer: fine)').matches
-    if (!isHoverDevice) return
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (!isHoverDevice || prefersReducedMotion) return
+
+    const grid = gridRef.current
+    if (!grid) return
+
+    let frameId = 0
+    let mouseX = 0
+    let mouseY = 0
+    let isVisible = false
+
+    // Repaint the masked layer at most once per frame, not on every mousemove
+    const applyPosition = () => {
+      frameId = 0
+      grid.style.setProperty('--mouse-x', `${mouseX}px`)
+      grid.style.setProperty('--mouse-y', `${mouseY}px`)
+    }
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (!gridRef.current) return
-      gridRef.current.style.setProperty('--mouse-x', `${e.clientX}px`)
-      gridRef.current.style.setProperty('--mouse-y', `${e.clientY}px`)
-      gridRef.current.style.setProperty('--mouse-opacity', '0.75')
+      mouseX = e.clientX
+      mouseY = e.clientY
+      if (!isVisible) {
+        isVisible = true
+        grid.style.setProperty('--mouse-opacity', '0.75')
+      }
+      if (!frameId) frameId = requestAnimationFrame(applyPosition)
     }
 
     const handleMouseLeave = () => {
-      if (!gridRef.current) return
-      gridRef.current.style.setProperty('--mouse-opacity', '0')
+      isVisible = false
+      grid.style.setProperty('--mouse-opacity', '0')
     }
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true })
     document.body.addEventListener('mouseleave', handleMouseLeave)
 
     return () => {
+      cancelAnimationFrame(frameId)
       window.removeEventListener('mousemove', handleMouseMove)
       document.body.removeEventListener('mouseleave', handleMouseLeave)
     }
