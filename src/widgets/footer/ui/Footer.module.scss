@@ -35,8 +35,10 @@
     border: none;
     padding: 0;
 
-    :hover {
-      color: $primary-black;
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: $primary-black;
+      }
     }
   }
 }

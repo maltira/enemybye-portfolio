@@ -9,46 +9,69 @@ import { SITE_CONFIG } from '@/shared/config'
 import styles from './GithubActivity.module.scss'
 
 interface ApiResponse {
-  total: {
-    [year: string]: number
-    lastYear: number
+  total: Record<string, number>
+  contributions: Activity[]
+}
+
+const API_URL = `https://github-contributions-api.jogruber.de/v4/${SITE_CONFIG.githubUsername}?y=last`
+const CACHE_KEY = 'github-activity'
+const REQUEST_TIMEOUT_MS = 8000
+
+const readCache = (): Activity[] | null => {
+  try {
+    const raw = sessionStorage.getItem(CACHE_KEY)
+    return raw ? (JSON.parse(raw) as Activity[]) : null
+  } catch {
+    return null
   }
-  contributions: Array<{
-    date: string
-    count: number
-    level: 0 | 1 | 2 | 3 | 4
-  }>
+}
+
+const writeCache = (data: Activity[]) => {
+  try {
+    sessionStorage.setItem(CACHE_KEY, JSON.stringify(data))
+  } catch {
+    // Storage unavailable (private mode, quota) — caching is optional
+  }
 }
 
 export const GithubActivity = () => {
-  const [data, setData] = useState<Activity[]>([])
-  const [loading, setLoading] = useState(true)
+  const [data, setData] = useState<Activity[]>(() => readCache() ?? [])
+  const [loading, setLoading] = useState(data.length === 0)
   const [hasError, setHasError] = useState(false)
   const { ref: calendarRef } = useDragScroll<HTMLDivElement>()
 
-  const fetchActivity = () => {
-    setLoading(true)
-    setHasError(false)
-    fetch(`https://github-contributions-api.jogruber.de/v4/${SITE_CONFIG.githubUsername}?y=last`)
+  useEffect(() => {
+    if (!loading) return
+
+    const controller = new AbortController()
+    let unmounted = false
+    const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS)
+
+    fetch(API_URL, { signal: controller.signal })
       .then((res) => {
-        if (!res.ok) throw new Error('Failed to fetch contributions')
+        if (!res.ok) throw new Error(`Failed to fetch contributions: ${res.status}`)
         return res.json() as Promise<ApiResponse>
       })
       .then((res) => {
         setData(res.contributions)
-      })
-      .catch((err) => {
-        console.error('Error fetching GitHub activity:', err)
-        setHasError(true)
-      })
-      .finally(() => {
+        writeCache(res.contributions)
         setLoading(false)
       })
-  }
+      .catch((err) => {
+        // Unmounted (or StrictMode re-run) — nothing to update; a timeout still falls through
+        if (unmounted) return
+        console.error('Error fetching GitHub activity:', err)
+        setHasError(true)
+        setLoading(false)
+      })
+      .finally(() => clearTimeout(timeoutId))
 
-  useEffect(() => {
-    fetchActivity()
-  }, [])
+    return () => {
+      unmounted = true
+      clearTimeout(timeoutId)
+      controller.abort()
+    }
+  }, [loading])
 
   return (
     <Container className={styles.section}>

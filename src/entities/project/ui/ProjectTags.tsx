@@ -66,13 +66,22 @@ export const ProjectTags = ({ tags }: ProjectTagsProps) => {
 
     calculate()
 
+    let cancelled = false
+    document.fonts.ready.then(() => {
+      if (!cancelled) calculate()
+    })
+
     const container = containerRef.current
     if (!container) return
 
     const resizeObserver = new ResizeObserver(() => calculate())
     resizeObserver.observe(container)
+    if (measureRef.current) resizeObserver.observe(measureRef.current)
 
-    return () => resizeObserver.disconnect()
+    return () => {
+      cancelled = true
+      resizeObserver.disconnect()
+    }
   }, [tags])
 
   const hiddenCount = tags.length - visibleCount
@@ -81,8 +90,8 @@ export const ProjectTags = ({ tags }: ProjectTagsProps) => {
   return (
     <div ref={containerRef} className={styles.tagsContainer}>
       <div className={styles.tags}>
-        {visibleTags.map((tag) => (
-          <Tag key={tag}>{tag}</Tag>
+        {visibleTags.map((tag, idx) => (
+          <Tag key={`${tag}-${idx}`}>{tag}</Tag>
         ))}
         {hiddenCount > 0 && <Tag>+{hiddenCount}</Tag>}
       </div>
