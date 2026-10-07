@@ -1,0 +1,27 @@
+/* SF Pro Display — self-hosted, subset: Latin + Cyrillic */
+@font-face {
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('SF Pro Display Regular'), local('SFProDisplay-Regular'),
+    url('./fonts/SFProDisplay-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('SF Pro Display Medium'), local('SFProDisplay-Medium'),
+    url('./fonts/SFProDisplay-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('SF Pro Display Bold'), local('SFProDisplay-Bold'),
+    url('./fonts/SFProDisplay-Bold.woff2') format('woff2');
+}
